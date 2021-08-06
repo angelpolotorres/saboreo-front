@@ -1,0 +1,30 @@
+// Estados de las reglas: 'off','warn','error'
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "standard"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["react"],
+  "rules": {
+    "semi": 0,
+    "react/react-in-jsx-scope": "off",
+    "prettier/prettier": "off",
+    "space-before-function-paren": "off",
+    "react/forbid-prop-types": 0,
+    "react/prop-types": 0,
+    "multiline-ternary": 0,
+    "no-unused-vars": "off"
+  }
+}
