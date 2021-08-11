@@ -13,7 +13,9 @@ const MainMenu = () => {
           <Link to={`/user/${authContext.userProfile.nickname}`}>Perfil</Link>
         </li>
         <li>
-          <Link onClick={authContext.userLogout}>Logout</Link>
+          <Link to={'/'} onClick={authContext.userLogout}>
+            Logout
+          </Link>
         </li>
         <li>
           <Link to={'/anadir-plato'}>Añadir Plato</Link>

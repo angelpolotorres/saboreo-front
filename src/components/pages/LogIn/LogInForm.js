@@ -23,9 +23,10 @@ const LogInForm = () => {
   const [messageLoged, setMessageLoged] = useState(false);
   // Mensaje final ERROR
   const [messageError, setMessageError] = useState(false);
-
-  // Llamada pasando los datos de usuaro
-  const logInUser = () => {
+  console.log(userData);
+  // Llamada pasando los datos de usuario
+  const logInUser = (event) => {
+    event.preventDefault();
     axios
       .post('http://localhost:3000/users/login', userData)
       .then(function (response) {
@@ -53,27 +54,26 @@ const LogInForm = () => {
 
   return (
     <>
-      <form>
-        <TextField
-          title="Email"
-          type="text"
-          id="email"
+      <form onSubmit={logInUser}>
+        <input
+          name="Email"
           value={userData.email}
+          placeholder="Email"
           onChange={(e) => {
             setUserData({ ...userData, email: e.target.value });
           }}
         />
 
-        <TextField
-          title="Contraseña"
-          type="text"
-          id="password"
+        <input
+          name="Password"
           value={userData.password}
+          placeholder="Password"
           onChange={(e) => {
             setUserData({ ...userData, password: e.target.value });
           }}
         />
-        <Button value="Acceder" onClick={logInUser} />
+
+        <button type="submit">Loguearse</button>
       </form>
       {messageLoged && <p>Bienvenido</p>}
       {messageError && <p>Alguno de los datos no es correcto</p>}
