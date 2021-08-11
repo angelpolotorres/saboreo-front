@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import TextField from '../../common/TextField';
-import Button from '../../common/Button';
+import { Form, TextField, SubmitButton } from '../../common/FormElements/index';
 import { useAuthContext } from '../../contexts/AuthContext';
 import axios from 'axios';
 
@@ -23,7 +22,7 @@ const SignUpForm = () => {
   const [userData, setUserData] = useState(initUserData);
   // Variable para activar o no el boton de submit
   const [disabledButton, setDisableButton] = useState(true);
-  // PAra ver si el email esta usado
+  // Para ver si el email esta usado
   const [emailAvailable, setEmailAvailable] = useState(true);
   // Mensaje final OK
   const [messageCreated, setMessageCreated] = useState(false);
@@ -85,7 +84,7 @@ const SignUpForm = () => {
 
   return (
     <>
-      <form>
+      <Form onSubmit={createUser}>
         <TextField
           title="Nombre"
           type="text"
@@ -126,12 +125,10 @@ const SignUpForm = () => {
             setUserData({ ...userData, password: e.target.value });
           }}
         />
-        <Button
-          value="Crear Cuenta"
-          disabled={disabledButton}
-          onClick={createUser}
-        />
-      </form>
+        <SubmitButton type="submit" disabled={disabledButton}>
+          Crear usuario
+        </SubmitButton>
+      </Form>
       {messageCreated && <p>Usuario Creado</p>}
       {messageError && <p>Ha ocurrido un error, vuelva a intentarlo</p>}
     </>

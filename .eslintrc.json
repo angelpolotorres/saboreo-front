@@ -25,6 +25,8 @@
     "react/forbid-prop-types": 0,
     "react/prop-types": 0,
     "multiline-ternary": 0,
-    "no-unused-vars": "off"
+    "no-unused-vars": "off",
+    "quotes": "off",
+    "indent": "off"
   }
 }

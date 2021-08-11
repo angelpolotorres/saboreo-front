@@ -1,4 +1,11 @@
+import AddDishForm from './AddDishForm';
+
 const AddDish = () => {
-  return <h1>Añadir plato</h1>;
+  return (
+    <>
+      <h1>Añadir Plato</h1>
+      <AddDishForm />
+    </>
+  );
 };
 export default AddDish;

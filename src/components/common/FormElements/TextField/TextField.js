@@ -1,9 +1,11 @@
-const TextField = (props) => {
+import { Label } from '../index';
+
+export const TextField = (props) => {
   return (
     <>
-      <label htmlFor={props.id}>{props.title}</label>
+      <Label htmlFor={props.id} title={props.title} />
       <input
-        type={props.type}
+        type="text"
         id={props.id}
         name={props.name}
         value={props.value}
@@ -13,5 +15,3 @@ const TextField = (props) => {
     </>
   );
 };
-
-export default TextField;

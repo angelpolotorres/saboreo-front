@@ -6,6 +6,7 @@ import {
   ResultsPage,
   AddDish
 } from '../pages/PagesComponents';
+import { UploadFile } from '../pages/UploadFile/UploadFile';
 
 const Routes = () => {
   return (
@@ -16,6 +17,7 @@ const Routes = () => {
         <Route exact path="/login" component={LogIn} />
         <Route exact path="/search" component={ResultsPage} />
         <Route exact path="/anadir-plato" component={AddDish} />
+        <Route exact path="/subir-imagen" component={UploadFile} />
       </Switch>
     </Router>
   );

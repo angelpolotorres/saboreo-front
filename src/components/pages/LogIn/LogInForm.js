@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import TextField from '../../common/TextField';
-import Button from '../../common/Button';
+import { Form, TextField, SubmitButton } from '../../common/FormElements/index';
 import { useAuthContext } from '../../contexts/AuthContext';
 import axios from 'axios';
 
@@ -29,6 +28,7 @@ const LogInForm = () => {
     axios
       .post('http://localhost:3000/users/login', userData)
       .then(function (response) {
+        console.log(response);
         setMessageLoged(true);
         // Pasamos datos a AuthContext
         const { token, profile } = response.data;
@@ -53,7 +53,7 @@ const LogInForm = () => {
 
   return (
     <>
-      <form>
+      <Form onSubmit={logInUser}>
         <TextField
           title="Email"
           type="text"
@@ -73,8 +73,8 @@ const LogInForm = () => {
             setUserData({ ...userData, password: e.target.value });
           }}
         />
-        <Button value="Acceder" onClick={logInUser} />
-      </form>
+        <SubmitButton type="submit">Acceder</SubmitButton>
+      </Form>
       {messageLoged && <p>Bienvenido</p>}
       {messageError && <p>Alguno de los datos no es correcto</p>}
     </>
