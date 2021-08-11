@@ -5,7 +5,7 @@ import Button from '../../common/Button';
 import { useAuthContext } from '../../contexts/AuthContext';
 import axios from 'axios';
 
-const SignUpForm = () => {
+export const SignUpForm = () => {
   // Llamamos al contexto
   const AuthContext = useAuthContext();
 
@@ -137,4 +137,3 @@ const SignUpForm = () => {
     </>
   );
 };
-export default SignUpForm;

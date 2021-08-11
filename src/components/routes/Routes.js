@@ -1,11 +1,5 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import {
-  Home,
-  LogIn,
-  SignUp,
-  ResultsPage,
-  AddDish
-} from '../pages/PagesComponents';
+import { Home, LogIn, SignUp, ResultsPage, AddDish } from '../pages/index';
 
 const Routes = () => {
   return (

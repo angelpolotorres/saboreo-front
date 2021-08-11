@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import { useAuthContext } from '../contexts/AuthContext';
+import { useAuthContext } from '../../contexts/AuthContext';
 
-const MainMenu = () => {
+export const MainMenu = () => {
   // Cargamos contexto
   const authContext = useAuthContext();
 
@@ -35,4 +35,3 @@ const MainMenu = () => {
     </div>
   );
 };
-export default MainMenu;

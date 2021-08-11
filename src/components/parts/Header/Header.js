@@ -1,6 +1,6 @@
-import MainMenu from '../common/MainMenu';
+import { MainMenu } from '../../common/MainMenu/MainMenu';
 
-const Header = () => {
+export const Header = () => {
   return (
     <header>
       <div className="Logo">Logo</div>
@@ -8,5 +8,3 @@ const Header = () => {
     </header>
   );
 };
-
-export default Header;

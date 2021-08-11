@@ -1,6 +1,6 @@
-import LogInForm from './LogInForm';
+import { LogInForm } from './LogInForm';
 
-const LogIn = () => {
+export const LogIn = () => {
   return (
     <>
       <h1>LogIn</h1>
@@ -8,4 +8,3 @@ const LogIn = () => {
     </>
   );
 };
-export default LogIn;

@@ -1,6 +1,6 @@
-import SignUpForm from './SignUpForm';
+import { SignUpForm } from './SignUpForm';
 
-const SignUp = () => {
+export const SignUp = () => {
   return (
     <>
       <h1>SignUp</h1>
@@ -8,4 +8,3 @@ const SignUp = () => {
     </>
   );
 };
-export default SignUp;
