@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
-import { Form, SubmitButton } from '../../common/FormElements/index';
+import { Form, InputFile, SubmitButton } from '../../common/FormElements/index';
 
 const CLOUDI_PRESET = process.env.REACT_APP_CLOUDI_PRESET;
 const CLOUDI_SERVER = process.env.REACT_APP_CLOUDI_SERVER;
@@ -34,8 +34,7 @@ export const AddDishForm = () => {
   return (
     <>
       <Form onSubmit={uploadImage}>
-        <input
-          type="file"
+        <InputFile
           onChange={(e) => {
             setImage(e.target.files[0]);
           }}
