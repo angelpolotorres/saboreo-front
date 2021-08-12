@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Form, TextField } from '../../common/FormElements/index';
+import { Form, TextField, SubmitButton } from '../../common/FormElements/index';
 import Button from '../../common/Button';
 import { useAuthContext } from '../../contexts/AuthContext';
 import axios from 'axios';
@@ -73,7 +73,7 @@ export const LogInForm = () => {
           }}
         />
 
-        <button type="submit">Loguearse</button>
+        <SubmitButton>Loguearse</SubmitButton>
       </Form>
       {messageLoged && <p>Bienvenido</p>}
       {messageError && <p>Alguno de los datos no es correcto</p>}
