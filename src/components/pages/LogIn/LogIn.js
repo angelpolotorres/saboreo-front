@@ -1,11 +1,14 @@
-import LogInForm from './LogInForm';
+import { LogInForm } from './LogInForm';
+import { Container, Zone } from '../../common/Structure/index';
+import './LogIn.css';
 
-const LogIn = () => {
+export const LogIn = () => {
   return (
-    <>
-      <h1>LogIn</h1>
-      <LogInForm></LogInForm>
-    </>
+    <Container>
+      <Zone className="login-zone">
+        <div className="login-image"></div>
+        <LogInForm className="loginForm" />
+      </Zone>
+    </Container>
   );
 };
-export default LogIn;

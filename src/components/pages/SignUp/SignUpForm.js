@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import TextField from '../../common/TextField';
-import Button from '../../common/Button';
+import { Form, TextInput } from '../../common/FormElements/index';
+import { Button } from '../../common/Buttons/Button';
 import { useAuthContext } from '../../contexts/AuthContext';
 import axios from 'axios';
 
-const SignUpForm = () => {
+export const SignUpForm = (props) => {
   // Llamamos al contexto
   const AuthContext = useAuthContext();
 
@@ -84,57 +84,44 @@ const SignUpForm = () => {
   }, [userData, emailAvailable]);
 
   return (
-    <>
-      <form>
-        <TextField
-          title="Nombre"
-          type="text"
-          id="name"
-          value={userData.name}
-          onChange={(e) => {
-            setUserData({ ...userData, name: e.target.value });
-          }}
-        />
-
-        <TextField
-          title="Apellidos"
-          type="text"
-          id="surname"
-          value={userData.surname}
-          onChange={(e) => {
-            setUserData({ ...userData, surname: e.target.value });
-          }}
-        />
-
-        <TextField
-          title="Email"
-          type="text"
-          id="email"
-          value={userData.email}
-          onChange={(e) => {
-            setUserData({ ...userData, email: e.target.value });
-          }}
-          onBlur={checkEmailUser}
-        />
-
-        <TextField
-          title="Contraseña"
-          type="text"
-          id="password"
-          value={userData.password}
-          onChange={(e) => {
-            setUserData({ ...userData, password: e.target.value });
-          }}
-        />
-        <Button
-          value="Crear Cuenta"
-          disabled={disabledButton}
-          onClick={createUser}
-        />
-      </form>
+    <Form className={props.className} onSubmit={createUser}>
+      <h1 className="title-signup">Bienvenido a Saboreo</h1>
+      <TextInput
+        name="Nombre"
+        value={userData.name}
+        placeholder="Nombre"
+        onChange={(e) => {
+          setUserData({ ...userData, name: e.target.value });
+        }}
+      />
+      <TextInput
+        name="Apellidos"
+        value={userData.surname}
+        placeholder="Apellidos"
+        onChange={(e) => {
+          setUserData({ ...userData, surname: e.target.value });
+        }}
+      />
+      <TextInput
+        name="Email"
+        value={userData.email}
+        placeholder="Email"
+        onChange={(e) => {
+          setUserData({ ...userData, email: e.target.value });
+        }}
+        onBlur={checkEmailUser}
+      />
+      <TextInput
+        name="Password"
+        value={userData.password}
+        placeholder="Password"
+        onChange={(e) => {
+          setUserData({ ...userData, password: e.target.value });
+        }}
+      />
+      <Button className="primary-button">Crear Cuenta</Button>
       {messageCreated && <p>Usuario Creado</p>}
       {messageError && <p>Ha ocurrido un error, vuelva a intentarlo</p>}
-    </>
+    </Form>
   );
 };
-export default SignUpForm;

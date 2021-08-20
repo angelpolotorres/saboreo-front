@@ -1,38 +1,38 @@
-.App {
-  text-align: center;
+*,
+html {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.containerHeader {
+  border-bottom: solid 1px #d9d9d9;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+/* -------------------- VARIABLES -------------------- */
+/* -------------------- VARIABLES -------------------- */
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+:root {
+  --green-primary: #31934d;
+  --green-secondary: #93bf46;
+  --gren-bghover-primary: #34b258;
+  --green-bghover-secondary: #def4e4;
+  --grey-border: #bdbdbd;
+  --grey-placeholder: #a5a5a5;
+  --grey-ligth-border: #d9d9d9;
+  --grey-text: #494949;
+  --grey-ligth-text: #a09f9f;
+  --white: #ffffff;
+  --color-link: #e17613;
 
-.App-link {
-  color: #61dafb;
-}
+  --radius-button-16: 16px;
+  --radius-button-8: 8px;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  --button-text: 16px;
+  --button-primary-border: 0px;
+  --button-radius: 16px;
+  --button-padding: 14px 16px;
+  --button-max-width: 286px;
+  --button-letter-spacing: 0.03em;
+  --button-margin: 6px 0 6px 0;
+
+  --imput-margin: 6px 0 6px 0;
 }

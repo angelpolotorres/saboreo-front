@@ -1,11 +1,14 @@
-import SignUpForm from './SignUpForm';
+import { SignUpForm } from './SignUpForm';
+import { Container, Zone } from '../../common/Structure/index';
+import './SignUp.css';
 
-const SignUp = () => {
+export const SignUp = () => {
   return (
-    <>
-      <h1>SignUp</h1>
-      <SignUpForm></SignUpForm>
-    </>
+    <Container>
+      <Zone className="signup-zone">
+        <div className="signup-image"></div>
+        <SignUpForm className="signupForm" />
+      </Zone>
+    </Container>
   );
 };
-export default SignUp;

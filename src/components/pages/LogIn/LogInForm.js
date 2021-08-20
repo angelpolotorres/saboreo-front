@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import TextField from '../../common/TextField';
-import Button from '../../common/Button';
+import { Form, TextInput } from '../../common/FormElements/index';
+import { Button } from '../../common/Buttons/Button';
 import { useAuthContext } from '../../contexts/AuthContext';
 import axios from 'axios';
 
-const LogInForm = () => {
+export const LogInForm = (props) => {
   // Llamamos al contexto
   const AuthContext = useAuthContext();
 
@@ -23,9 +23,10 @@ const LogInForm = () => {
   const [messageLoged, setMessageLoged] = useState(false);
   // Mensaje final ERROR
   const [messageError, setMessageError] = useState(false);
-
-  // Llamada pasando los datos de usuaro
-  const logInUser = () => {
+  // Llamada pasando los datos de usuario
+  const logInUser = (event) => {
+    // Bloquear el comportamiento x default al pulsar button
+    event.preventDefault();
     axios
       .post('http://localhost:3000/users/login', userData)
       .then(function (response) {
@@ -52,32 +53,35 @@ const LogInForm = () => {
   };
 
   return (
-    <>
-      <form>
-        <TextField
-          title="Email"
-          type="text"
-          id="email"
-          value={userData.email}
-          onChange={(e) => {
-            setUserData({ ...userData, email: e.target.value });
-          }}
-        />
+    <Form className={props.className} onSubmit={logInUser}>
+      <h1 className="titleLogIn">Bienvenido a Saboreo</h1>
+      <TextInput
+        name="Email"
+        value={userData.email}
+        placeholder="Email"
+        onChange={(e) => {
+          setUserData({ ...userData, email: e.target.value });
+        }}
+      />
 
-        <TextField
-          title="Contraseña"
-          type="text"
-          id="password"
-          value={userData.password}
-          onChange={(e) => {
-            setUserData({ ...userData, password: e.target.value });
-          }}
-        />
-        <Button value="Acceder" onClick={logInUser} />
-      </form>
+      <TextInput
+        name="Password"
+        value={userData.password}
+        placeholder="Contraseña"
+        onChange={(e) => {
+          setUserData({ ...userData, password: e.target.value });
+        }}
+      />
+      <Button className="primary-button">Acceder</Button>
+
+      <a href="#" className="recover-password">
+        Recuperar Contraseña
+      </a>
       {messageLoged && <p>Bienvenido</p>}
       {messageError && <p>Alguno de los datos no es correcto</p>}
-    </>
+      <div className="separator-login"></div>
+      <p className="login-register-title">¿Aún no tienes cuenta?</p>
+      <Button className="invisible-button">Registrate</Button>
+    </Form>
   );
 };
-export default LogInForm;

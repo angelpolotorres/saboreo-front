@@ -1,0 +1,69 @@
+.signup-zone {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+}
+
+.signup-image {
+  display: none;
+}
+
+.signupForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 24px;
+  align-items: center;
+}
+
+.title-signup {
+  font-size: 18px;
+  text-align: center;
+  color: var(--green-primary);
+  margin: 48px 0 24px 0;
+}
+
+.separator-signup {
+  width: 100%;
+  height: 1px;
+  background: var(--grey-border);
+  margin: 48px 0 40px 0;
+}
+
+.recover-password {
+  color: var(--green-secondary);
+  padding: 8px 0px;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.signup-register-title {
+  color: var(--grey-ligth-text);
+  font-size: 14px;
+  margin: 8px 0 8px 0;
+}
+
+/* --- Desktop --- */
+@media (min-width: 768px) {
+  .signup-zone {
+    margin: 40px 0 0 0;
+    border: solid 1px #d9d9d9;
+    border-radius: 16px;
+  }
+
+  .signupForm {
+    padding: 60px 0 100px 0px;
+  }
+
+  .signup-image {
+    display: block;
+    width: 100%;
+    background: gainsboro;
+    border-radius: 16px 0 0 16px;
+  }
+
+  .separator-signup {
+    max-width: 50%;
+    background: #d9d9d9;
+  }
+}

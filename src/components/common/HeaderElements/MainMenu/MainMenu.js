@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import { useAuthContext } from '../contexts/AuthContext';
+import { useAuthContext } from '../../../contexts/index';
 
-const MainMenu = () => {
+export const MainMenu = () => {
   // Cargamos contexto
   const authContext = useAuthContext();
 
@@ -13,7 +13,9 @@ const MainMenu = () => {
           <Link to={`/user/${authContext.userProfile.nickname}`}>Perfil</Link>
         </li>
         <li>
-          <Link onClick={authContext.userLogout}>Logout</Link>
+          <Link to={'/'} onClick={authContext.userLogout}>
+            Logout
+          </Link>
         </li>
         <li>
           <Link to={'/anadir-plato'}>Añadir Plato</Link>
@@ -33,4 +35,3 @@ const MainMenu = () => {
     </div>
   );
 };
-export default MainMenu;
