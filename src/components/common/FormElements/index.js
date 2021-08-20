@@ -1,6 +1,17 @@
 import { Form } from './Form/Form';
-import { TextField } from './TextField/TextField';
-import { SubmitButton } from './SubmitButton/SubmitButton';
-import { InputFile } from './InputFile/InputFile';
+import { Label } from './Label/Label';
+import { TextInput } from './TextInput/TextInput';
+import { BlockText } from './BlockText/BlockText';
+import { RadioInput } from './RadioInput/RadioInput';
+import { FileInput } from './FileInput/FileInput';
+import { SubmitInput } from './SubmitInput/SubmitInput';
 
-export { Form, TextField, SubmitButton, InputFile };
+export {
+  Form,
+  Label,
+  TextInput,
+  BlockText,
+  RadioInput,
+  SubmitInput,
+  FileInput
+};

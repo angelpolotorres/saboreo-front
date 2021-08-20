@@ -1,9 +1,9 @@
-import { TextFieldStyled } from './TextFieldStyled';
+import { TextInputStyled } from './TextInputStyled';
 
-export const TextField = (props) => {
+export const TextInput = (props) => {
   return (
     <>
-      <TextFieldStyled
+      <TextInputStyled
         name={props.name}
         value={props.value}
         placeholder={props.placeholder}

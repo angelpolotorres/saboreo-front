@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Form, TextField, SubmitButton } from '../../common/FormElements/index';
-import Button from '../../common/Button';
+import { Form, TextInput } from '../../common/FormElements/index';
+import { Button } from '../../common/Buttons/Button';
 import { useAuthContext } from '../../contexts/AuthContext';
 import axios from 'axios';
 
-export const LogInForm = () => {
+export const LogInForm = (props) => {
   // Llamamos al contexto
   const AuthContext = useAuthContext();
 
@@ -53,30 +53,35 @@ export const LogInForm = () => {
   };
 
   return (
-    <>
-      <Form onSubmit={logInUser}>
-        <TextField
-          name="Email"
-          value={userData.email}
-          placeholder="Email"
-          onChange={(e) => {
-            setUserData({ ...userData, email: e.target.value });
-          }}
-        />
+    <Form className={props.className} onSubmit={logInUser}>
+      <h1 className="titleLogIn">Bienvenido a Saboreo</h1>
+      <TextInput
+        name="Email"
+        value={userData.email}
+        placeholder="Email"
+        onChange={(e) => {
+          setUserData({ ...userData, email: e.target.value });
+        }}
+      />
 
-        <TextField
-          name="Password"
-          value={userData.password}
-          placeholder="Password"
-          onChange={(e) => {
-            setUserData({ ...userData, password: e.target.value });
-          }}
-        />
+      <TextInput
+        name="Password"
+        value={userData.password}
+        placeholder="Contraseña"
+        onChange={(e) => {
+          setUserData({ ...userData, password: e.target.value });
+        }}
+      />
+      <Button className="primary-button">Acceder</Button>
 
-        <SubmitButton>Loguearse</SubmitButton>
-      </Form>
+      <a href="#" className="recover-password">
+        Recuperar Contraseña
+      </a>
       {messageLoged && <p>Bienvenido</p>}
       {messageError && <p>Alguno de los datos no es correcto</p>}
-    </>
+      <div className="separator-login"></div>
+      <p className="login-register-title">¿Aún no tienes cuenta?</p>
+      <Button className="invisible-button">Registrate</Button>
+    </Form>
   );
 };

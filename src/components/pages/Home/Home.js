@@ -1,10 +1,5 @@
-import { Header } from '../../parts/Header/Header';
+import { Header } from '../../common/HeaderElements/index';
 
 export const Home = () => {
-  return (
-    <>
-      <h1>Home</h1>
-      <Header />
-    </>
-  );
+  return <></>;
 };

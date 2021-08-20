@@ -1,16 +1,16 @@
 import './App.css';
-import { AuthProvider } from './components/contexts/AuthContext';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Routes from './components/routes/Routes';
+import { Header } from './components/common/HeaderElements/index';
 
 require('dotenv').config();
 
 const App = () => {
   return (
-    <AuthProvider>
-      <div className="App">
-        <Routes></Routes>
-      </div>
-    </AuthProvider>
+    <Router>
+      <Header></Header>
+      <Routes></Routes>
+    </Router>
   );
 };
 
