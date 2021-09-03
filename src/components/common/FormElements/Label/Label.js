@@ -3,7 +3,9 @@ import { LabelStyled } from './LabelStyled';
 export const Label = (props) => {
   return (
     <>
-      <LabelStyled htmlFor={props.htmlFor}>{props.title}</LabelStyled>
+      <LabelStyled className={props.className} htmlFor={props.htmlFor}>
+        {props.title}
+      </LabelStyled>
     </>
   );
 };
