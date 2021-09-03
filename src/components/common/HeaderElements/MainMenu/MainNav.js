@@ -10,7 +10,10 @@ export const MainNav = () => {
 
   const showNavMobile = () => {
     const topNav = document.getElementById('myTopnav');
-    if (topNav.className === 'topnav') {
+    if (
+      topNav.className === 'topnav' &&
+      window.matchMedia('(max-width: 768px)').matches
+    ) {
       topNav.className += ' showed';
     } else {
       topNav.className = 'topnav';
@@ -19,15 +22,28 @@ export const MainNav = () => {
   return authContext.userProfile ? (
     <MainNavStyled>
       <div className="topnav" id="myTopnav">
-        <a href="javascript:void(0);" className="icon" onClick={showNavMobile}>
+        <a href="#" className="icon" onClick={showNavMobile}>
           Menú
         </a>
         <div className="navLinks">
-          <Link to={`/user/${authContext.userProfile.nickname}`}>Perfil</Link>
-          <Link to={'/'} onClick={authContext.userLogout}>
+          <Link
+            to={`/user/${authContext.userProfile.nickname}`}
+            onClick={showNavMobile}
+          >
+            Perfil
+          </Link>
+          <Link
+            to={'/'}
+            onClick={() => {
+              showNavMobile();
+              authContext.userLogout();
+            }}
+          >
             Logout
           </Link>
-          <Link to={'/anadir-plato'}>Añadir Plato</Link>
+          <Link to={'/anadir-plato'} onClick={showNavMobile}>
+            Añadir Plato
+          </Link>
         </div>
       </div>
       <ShoppingCart>Carrito</ShoppingCart>
@@ -35,12 +51,16 @@ export const MainNav = () => {
   ) : (
     <MainNavStyled>
       <div className="topnav" id="myTopnav">
-        <a href="javascript:void(0);" className="icon" onClick={showNavMobile}>
+        <a href="#" className="icon" onClick={showNavMobile}>
           Menú
         </a>
         <div className="navLinks">
-          <Link to="/login">Mi cuenta</Link>
-          <Link to="/registro">Registro</Link>
+          <Link to="/login" onClick={showNavMobile}>
+            Mi cuenta
+          </Link>
+          <Link to="/registro" onClick={showNavMobile}>
+            Registro
+          </Link>
         </div>
       </div>
       <ShoppingCart>Carrito</ShoppingCart>

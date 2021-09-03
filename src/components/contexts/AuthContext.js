@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 
 const initialContext = {
-  userProfile: null,
+  userProfile: {},
   loading: true,
   userLogin: () => {},
   userLogout: () => {}
