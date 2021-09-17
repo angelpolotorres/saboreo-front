@@ -1,0 +1,35 @@
+.primary-button {
+  color: var(--white);
+  border-radius: var(--radius-button-16);
+  border: var(--button-primary-border);
+  background: var(--green-primary);
+  margin: var(--button-margin);
+}
+
+.primary-button:hover {
+  background: var(--gren-bghover-primary);
+}
+
+.secondary-button:hover {
+  background: var(--green-bghover-secondary);
+}
+
+.secondary-button {
+  color: var(--green-primary);
+  border-radius: var(--radius-button-16);
+  border: solid 1px var(--green-primary);
+  background: var(--white);
+}
+
+.invisible-button {
+  color: var(--grey-ligth-text);
+  border-radius: var(--radius-button-16);
+  border: solid 1px var(--grey-border);
+  background: var(--white);
+}
+
+.invisible-button:hover {
+  background: var(--green-bghover-secondary);
+  border: solid 1px var(--green-primary);
+  color: var(--green-primary);
+}
