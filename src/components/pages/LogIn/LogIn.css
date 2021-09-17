@@ -58,7 +58,9 @@
   .login-image {
     display: block;
     width: 100%;
-    background: gainsboro;
+    background-image: url(https://wetaca.com/images/home/tandoori.jpg);
+    background-size: cover;
+    background-position: center;
     border-radius: 16px 0 0 16px;
   }
 

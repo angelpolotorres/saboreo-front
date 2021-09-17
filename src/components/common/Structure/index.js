@@ -1,4 +1,4 @@
 import { Container } from './Container/Container';
-import { Zone } from './Zone/Zone';
+import { Zone, ZoneGrid } from './Zone/Zone';
 
-export { Container, Zone };
+export { Container, Zone, ZoneGrid };

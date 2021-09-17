@@ -1,4 +1,6 @@
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
+
 import { useState, useEffect } from 'react';
 import {
   Form,
@@ -24,34 +26,45 @@ const initDishData = {
   ingredients: '',
   allergens: '',
   vegan: '',
-  glutenFree: false
+  glutenFree: false,
+  price: 0
 };
 
 export const AddDishForm = (props) => {
+  const authContext = useAuthContext();
+  const userToken = authContext.userToken;
+  const userId = authContext.userProfile.id;
   const [dishData, setDishData] = useState(initDishData);
   const [image, setImage] = useState();
-  const [urlImage, setUrlImage] = useState();
   const [messageError, setMessageError] = useState(false);
   const [messageCreated, setMessageCreated] = useState(false);
-  const [userProfile, setUserProfile] = useState(
-    JSON.parse(localStorage.getItem('profile'))
-  );
+
+  // Dependencia que nos permite movernos por las rutas
+  const history = useHistory();
 
   const createDish = async (event) => {
     // Bloquear el comportamiento x default al pulsar button
     event.preventDefault();
 
-    setDishData({ ...dishData, seller: userProfile.id });
     const imageUrl = await uploadImage();
-    setDishData({ ...dishData, image: imageUrl });
+    const data = { ...dishData, image: imageUrl, seller: userId };
 
     axios
-      .post('http://localhost:3000/dishes', dishData)
+      .post('http://localhost:3000/dishes', data, {
+        headers: {
+          token: userToken
+        }
+      })
       .then(function (response) {
-        console.log(response);
+        // console.log(response);
         response.status === 400
           ? setMessageError(true)
           : setMessageCreated(true);
+        // Limpiamos campos
+        setDishData(initDishData);
+        setTimeout(() => {
+          history.push('/');
+        }, 2000);
       })
       .catch(function (err) {
         console.log(err);
@@ -176,7 +189,17 @@ export const AddDishForm = (props) => {
           }}
         />
       </div>
+
+      <TextInput
+        placeholder="Precio"
+        onChange={(e) => {
+          setDishData({ ...dishData, price: e.target.value });
+        }}
+      />
+
       <Button className="primary-button">Añadir Plato</Button>
+      {messageCreated && <p>Plato Creado</p>}
+      {messageError && <p>Alguno de los datos no es correcto</p>}
     </Form>
   );
 };

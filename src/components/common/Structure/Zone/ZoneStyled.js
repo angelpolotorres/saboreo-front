@@ -14,7 +14,6 @@ export const ZoneGridStyled = styled.div`
   max-width: 1440px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 20px;
-  background: #666;
   padding: 0 16px;
   box-sizing: border-box;
 
