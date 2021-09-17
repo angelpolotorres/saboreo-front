@@ -3,9 +3,9 @@ html {
   box-sizing: border-box;
 }
 
-.containerHeader {
+/* .containerHeader {
   border-bottom: solid 1px #d9d9d9;
-}
+} */
 
 /* -------------------- VARIABLES -------------------- */
 /* -------------------- VARIABLES -------------------- */
@@ -39,3 +39,70 @@ html {
 
 /* -------------------- HEADER ELEMENTS -------------------- */
 /* -------------------- HEADER ELEMENTS -------------------- */
+
+/* ------------------ .ZONE .GRID ----------------- */
+/* ------------------ .ZONE .GRID ----------------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+  background: #666;
+}
+
+.mcol1 {
+  grid-column: span 1;
+}
+.mcol2 {
+  grid-column: span 2;
+}
+.mcol3 {
+  grid-column: span 3;
+}
+.mcol4 {
+  grid-column: span 4;
+}
+
+/* --- Desktop --- */
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  .col1 {
+    grid-column: span 1;
+  }
+  .col2 {
+    grid-column: span 2;
+  }
+  .col3 {
+    grid-column: span 3;
+  }
+  .col4 {
+    grid-column: span 4;
+  }
+  .col5 {
+    grid-column: span 5;
+  }
+  .col6 {
+    grid-column: span 6;
+  }
+  .col7 {
+    grid-column: span 7;
+  }
+  .col8 {
+    grid-column: span 8;
+  }
+  .col9 {
+    grid-column: span 9;
+  }
+  .col10 {
+    grid-column: span 10;
+  }
+  .col11 {
+    grid-column: span 11;
+  }
+  .col12 {
+    grid-column: span 12;
+  }
+}

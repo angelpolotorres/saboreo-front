@@ -4,7 +4,7 @@ import { HeaderStyled } from './HeaderStyled';
 
 export const Header = () => {
   return (
-    <Container className="containerHeader">
+    <Container header>
       <Zone>
         <HeaderStyled>
           <LogoHeader>Saboreo</LogoHeader>

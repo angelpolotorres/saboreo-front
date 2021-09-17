@@ -53,5 +53,8 @@
     width: 100%;
     background: gainsboro;
     border-radius: 16px 0 0 16px;
+    background-image: url(https://wetaca.com/images/home/tandoori.jpg);
+    background-size: cover;
+    background-position: center;
   }
 }
