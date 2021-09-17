@@ -3,11 +3,13 @@ import { useEffect, useState } from 'react';
 import { Card } from '../../common/Cards/Card';
 import { Container, ZoneGrid } from '../../common/Structure/index';
 
+const SERVIDOR = process.env.SERVIDOR;
+
 export const Home = () => {
   const [listDish, setListDish] = useState([]);
 
   useEffect(async () => {
-    const response = await axios.get('http://localhost:3000/dishes');
+    const response = await axios.get(`http://${SERVIDOR}/dishes`);
     console.log(response.data);
     setListDish(response.data);
   }, []);

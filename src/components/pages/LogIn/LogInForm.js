@@ -5,6 +5,8 @@ import { Button } from '../../common/Buttons/Button';
 import { useAuthContext } from '../../contexts/AuthContext';
 import axios from 'axios';
 
+const SERVIDOR = process.env.SERVIDOR;
+
 export const LogInForm = (props) => {
   // Llamamos al contexto
   const AuthContext = useAuthContext();
@@ -28,7 +30,7 @@ export const LogInForm = (props) => {
     // Bloquear el comportamiento x default al pulsar button
     event.preventDefault();
     axios
-      .post('http://localhost:3000/users/login', userData)
+      .post(`http://${SERVIDOR}/users/login`, userData)
       .then(function (response) {
         setMessageLoged(true);
         // Pasamos datos a AuthContext

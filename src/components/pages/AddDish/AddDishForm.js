@@ -16,6 +16,7 @@ import { useAuthContext } from '../../contexts/index';
 
 const CLOUDI_PRESET = process.env.REACT_APP_CLOUDI_PRESET;
 const CLOUDI_SERVER = process.env.REACT_APP_CLOUDI_SERVER;
+const SERVIDOR = process.env.SERVIDOR;
 
 const initDishData = {
   seller: '',
@@ -50,7 +51,7 @@ export const AddDishForm = (props) => {
     const data = { ...dishData, image: imageUrl, seller: userId };
 
     axios
-      .post('http://localhost:3000/dishes', data, {
+      .post(`http://${SERVIDOR}/dishes`, data, {
         headers: {
           token: userToken
         }
